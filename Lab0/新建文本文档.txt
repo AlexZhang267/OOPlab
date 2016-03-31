@@ -1,0 +1,13 @@
+just as you need air to breathe, you need opportunity to succeed. it takes more than just breathing in the fresh air of opportunity, however. you must make use of that opportunity. that's not up to the opportunity. that's up to you. it doesn't matter what "floor" the opportunity is on. what matters is what you do with it.
+
+
+
+C:\Users\Administrator\.CLion12\system\cmake\generated\f72286a0\f72286a0\Debug\lab0.exe
+just as you need air to breathe, you need opportunity to succeed. it takes more than just breathing in the fresh air of opportunity, however. you must make use of that opportunity. that's not up to the opportunity. that's up to you. it doesn't matter what "floor" the opportunity is on. what matters is what you do witn't matter what "floor" the opportunity is on. what matters is what you do with it.
+Process finished with exit code 0
+
+C:\Users\Administrator\.CLion12\system\cmake\generated\f72286a0\f72286a0\Debug\lab0.exe
+just as you need air to breathe, you need opportunity to succeed. it takes more than just breathing in the fresh air of
+opportunity, however. you must make use of that opportunity. that's not up to the opportunityopportunity, however. you must make use of that opportunity. that's not up to the opportunity. that's up to you. it does
+n't matter what "floor" the opportunity is on. what matters is what you do with it.
+Process finished with exit code 0
