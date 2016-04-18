@@ -26,7 +26,7 @@ public:
         return commodityVector;
     }
 
-    void handlePurchase(string commodity, double discount = 1);
+    bool handlePurchase(string commodity, double discount = 1);
 
     void reduceLife();
 

@@ -79,12 +79,12 @@ void FamilyMart::product(string date) {
 
 }
 
-void FamilyMart::handlePurchase(string commodity, double discount) {
+bool FamilyMart::handlePurchase(string commodity, double discount) {
 
-//    for (int i = 0; i < commodityVector.size(); ++i) {
-//        cout << commodityVector[i].getName() << " " << commodityVector[i].getProductDate() << endl;
-//    }
-
+    if(commodityVector.size() == 0){
+        cout << "FamilyMart closed" << endl;
+        return true;
+    }
 
     for (int i = 0; i < commodityVector.size(); ++i) {
         if(commodityVector[i].getName() == commodity){
@@ -92,10 +92,11 @@ void FamilyMart::handlePurchase(string commodity, double discount) {
             cout << "You buy a "<<commodityVector[i].getName()<< " with a discount "
             << discount<<", so "<<commodityVector[i].getPrice()*discount << "please" << endl;
             commodityVector.erase(it);
-            return;
+            return false;
         }
     }
     cout << "Sorry, " << commodity << " has been sold out" << endl;
+    return false;
 }
 
 

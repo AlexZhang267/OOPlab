@@ -31,6 +31,9 @@ void Customer::purchase(FamilyMart &familyMart) {
             discount = 1;
         }
 
-        familyMart.handlePurchase(name, discount);
+        bool close = familyMart.handlePurchase(name, discount);
+        if(close){
+            break;
+        }
     }
 };
