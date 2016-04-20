@@ -45,25 +45,7 @@ void updateDate(string &date) {
 }
 
 
-//class test{
-//public:
-//    int i;
-//    test(int i):i(i){};
-//    void add();
-//};
-//
-//void test::add(){
-//    i++;
-//}
-
-
 int main() {
-//    test t(2);
-//    cout << t.i << endl;
-//    t.add();
-//    cout << t.i << endl;
-
-
     string date = "2016/4/23";
     string input;
     cout << "Welcom to this program, N for exit, any key for go on" << endl;

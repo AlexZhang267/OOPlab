@@ -15,10 +15,9 @@ using namespace std;
 class FamilyMart {
 private:
     vector<Commodity> commodityVector;
+    double money=0;
 public:
     FamilyMart() {}
-
-//    void open(string openDate);
 
     void product(string date);///to product commodity
 
@@ -30,5 +29,11 @@ public:
 
     void reduceLife();
 
+    void moneyAdd(double d);
+
+
+    double getMoney() const {
+        return money;
+    }
 };
 #endif //LAB2_FAMILYMART_H

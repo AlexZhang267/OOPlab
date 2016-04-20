@@ -19,15 +19,15 @@ public:
     Commodity(){}
     Commodity(string name, double price, string productDate, int shelfLife, int discount = 1):name(name),
     price(price), productDate(productDate), shelfLife(shelfLife), discount(discount){}
+    ~Commodity(){cout << name << " is dropped" << endl;}
+
+    /*
+     * getter, and no setter, once the commodity produced, its attributes can't be modified;
+     */
 
     const string &getName() const {
         return name;
     }
-
-/*
-     * getter, and no setter, once the commodity produced, its attributes can't be modified;
-     */
-
 
     double getPrice() const {
         return price;
@@ -41,13 +41,11 @@ public:
         return shelfLife;
     }
 
+    // one day pass by, the life will reduce
     void reduceLife(){
         shelfLife --;
     }
 
-    void setDiscount(int discount) {
-        Commodity::discount = discount;
-    }
 };
 
 class Milk:public Commodity{

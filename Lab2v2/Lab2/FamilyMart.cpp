@@ -73,24 +73,28 @@ void FamilyMart::product(string date) {
         }
     }
 
+    cout << "We now have these commodity.=============================================" << endl;
     for (int i = 0; i < commodityVector.size(); ++i) {
-        cout << commodityVector[i].getName() << " " << commodityVector[i].getProductDate() << endl;
+        cout << commodityVector[i].getName() << "   (produced at " << commodityVector[i].getProductDate()<<")" << endl;
     }
+    cout << "=========================================================================" << endl;
 
 }
 
 bool FamilyMart::handlePurchase(string commodity, double discount) {
 
-    if(commodityVector.size() == 0){
-        cout << "FamilyMart closed" << endl;
+    if (commodityVector.size() == 0) {
+        cout << "FamilyMart closed. ";
+        cout << "We have earned  "<<getMoney() << " now."<<endl;
         return true;
     }
 
     for (int i = 0; i < commodityVector.size(); ++i) {
-        if(commodityVector[i].getName() == commodity){
-            std::vector<Commodity>::iterator it = commodityVector.begin()+i;
-            cout << "You buy a "<<commodityVector[i].getName()<< " with a discount "
-            << discount<<", so "<<commodityVector[i].getPrice()*discount << "please" << endl;
+        if (commodityVector[i].getName() == commodity) {
+            std::vector<Commodity>::iterator it = commodityVector.begin() + i;
+            cout << "You buy a " << commodityVector[i].getName() << " with a discount "
+            << discount << ", so " << commodityVector[i].getPrice() * discount << ", please" << endl;
+            moneyAdd(commodityVector[i].getPrice()*discount);
             commodityVector.erase(it);
             return false;
         }
@@ -103,9 +107,14 @@ bool FamilyMart::handlePurchase(string commodity, double discount) {
 void FamilyMart::reduceLife() {
     for (int i = 0; i < commodityVector.size(); ++i) {
         commodityVector[i].reduceLife();
-        if(commodityVector[i].getShelfLife()==0){
-            std::vector<Commodity>::iterator it = commodityVector.begin()+i;
+        if (commodityVector[i].getShelfLife() == 0) {
+            std::vector<Commodity>::iterator it = commodityVector.begin() + i;
+            cout <<commodityVector[i].getName() << " is expired." <<endl;
             commodityVector.erase(it);
         }
     }
+}
+
+void FamilyMart::moneyAdd(double d) {
+    money += d;
 }
