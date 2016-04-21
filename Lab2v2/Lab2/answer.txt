@@ -1,0 +1,6 @@
+Q1:
+以下完全是个人观点：
+	overload和default argument两个东西在本质上完全不同。overload实际上是几个不同的函数有着一样的函数名，不同的参数调用的完全就是不同的函数。而default argument实际上针对唯一的函数，它本质上只是给调用参数一个或者一些默认值。比如：int test(int a = 1, int b = 2, int c = 3)这个函数，它只是给abc一个默认值而已，虽然我们可能会有不同的形式去调用这个函数比如：test(),test(1),test(2,1)，但是在本质上这些不同的形式调用的还是那唯一的test函数。正是由于他们在本质上不同，然后导致了他们在语法上有很多差别。
+
+Q2:
+	实际上在discount上我什么都没有用。因为我还建了一个Customer类，然后我是在Customer类写了一个purchase的静态函数。这个purchase接受一个FamilyMart的引用，然后有这个引用去调用FamilMart的handlePurchase(string commidity, double discount)。我是在Customer类的purchase()里读文件的，这里还有一个double型discount变量，如果读到折扣的值，就把discount赋成这个值，都则就是1，然后再把这个discount传到FamilyMart的handlePurchase(string commodity, double discount)中去，所以本质上我是没用到重载和默认参数的。虽然我写了一个默认的discount=1。
