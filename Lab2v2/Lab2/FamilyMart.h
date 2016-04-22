@@ -16,6 +16,7 @@ class FamilyMart {
 private:
     vector<Commodity> commodityVector;
     double money=0;
+    int noCommodityDay = 0;
 public:
     FamilyMart() {}
 
@@ -34,6 +35,20 @@ public:
 
     double getMoney() const {
         return money;
+    }
+
+
+    int getNoCommodityDay() const {
+        return noCommodityDay;
+    }
+
+    void addNoCommodityDay(){
+        noCommodityDay++;
+    }
+
+
+    void setNoCommodityDay(int noCommodityDay) {
+        FamilyMart::noCommodityDay = noCommodityDay;
     }
 };
 #endif //LAB2_FAMILYMART_H

@@ -21,6 +21,8 @@ void FamilyMart::product(string date) {
     string productDate;
     std::stringstream ss;
 
+    bool hasInput = false;
+
     while (getline(infile, entry)) {
         // parse Commodity name
         index = entry.find("\t");
@@ -44,6 +46,8 @@ void FamilyMart::product(string date) {
 
 
         if (productDate == date) {
+//            setNoCommodityDay(0);
+            hasInput = true;
             if (name == "milk") {
                 Milk milk(productDate);
                 FamilyMart::commodityVector.push_back(milk);
@@ -73,9 +77,14 @@ void FamilyMart::product(string date) {
         }
     }
 
+    if(!hasInput){
+        addNoCommodityDay();
+    }
+
     cout << "We now have these commodity.=============================================" << endl;
     for (int i = 0; i < commodityVector.size(); ++i) {
-        cout << commodityVector[i].getName() << "   (produced at " << commodityVector[i].getProductDate()<<")" << endl;
+        cout << commodityVector[i].getName() << "   (produced at " << commodityVector[i].getProductDate() << ")" <<
+        endl;
     }
     cout << "=========================================================================" << endl;
 
@@ -83,18 +92,13 @@ void FamilyMart::product(string date) {
 
 bool FamilyMart::handlePurchase(string commodity, double discount) {
 
-    if (commodityVector.size() == 0) {
-        cout << "FamilyMart closed. ";
-        cout << "We have earned  "<<getMoney() << " now."<<endl;
-        return true;
-    }
 
     for (int i = 0; i < commodityVector.size(); ++i) {
         if (commodityVector[i].getName() == commodity) {
             std::vector<Commodity>::iterator it = commodityVector.begin() + i;
             cout << "You buy a " << commodityVector[i].getName() << " with a discount "
             << discount << ", so " << commodityVector[i].getPrice() * discount << ", please" << endl;
-            moneyAdd(commodityVector[i].getPrice()*discount);
+            moneyAdd(commodityVector[i].getPrice() * discount);
             commodityVector.erase(it);
             return false;
         }
@@ -107,10 +111,15 @@ bool FamilyMart::handlePurchase(string commodity, double discount) {
 void FamilyMart::reduceLife() {
     for (int i = 0; i < commodityVector.size(); ++i) {
         commodityVector[i].reduceLife();
+        cout << commodityVector[i].getName() << commodityVector[i].getProductDate() << endl;
+    }
+
+    for (int i = 0; i < commodityVector.size(); ++i) {
         if (commodityVector[i].getShelfLife() == 0) {
-            std::vector<Commodity>::iterator it = commodityVector.begin() + i;
-            cout <<commodityVector[i].getName() << " is expired." <<endl;
+            std::vector<Commodity>::iterator it = commodityVector.begin() + (i);
+            cout << commodityVector[i].getName() << " is expired." << endl;
             commodityVector.erase(it);
+            i--;
         }
     }
 }

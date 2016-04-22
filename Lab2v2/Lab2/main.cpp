@@ -21,13 +21,13 @@ void updateDate(string &date) {
     iDay++;
 
 
-    if(iDay > 30){
+    if (iDay > 30) {
         iDay %= 30;
         ss.str("");
         ss.clear();
         ss << sMonth;
         ss >> iMonth;
-        iMonth ++;
+        iMonth++;
         ss.str("");
         ss.clear();
         ss << iMonth;
@@ -37,10 +37,10 @@ void updateDate(string &date) {
     ss.str("");
     ss.clear();
 
-    ss<< iDay;
+    ss << iDay;
     ss >> sDay;
 
-    date = year +"/" + sMonth + "/" + sDay;
+    date = year + "/" + sMonth + "/" + sDay;
 
 }
 
@@ -52,15 +52,18 @@ int main() {
     cin >> input;
     FamilyMart familyMart;
 
+    cout << "FamilyMart Open"<< endl;
+
     while (input != "N") {
         cout << "today is " << date << endl;
-        if (date == "2016/4/23") {
-            cout << "FamilyMart open today!" << endl;
-        } else {
-            familyMart.product(date);
-            Customer::purchase(familyMart);
+        if (familyMart.getNoCommodityDay() == 3) {
+            cout << "FamilyMart is closed" << endl;
+            return 0;
         }
 
+        familyMart.product(date);
+        Customer::purchase(familyMart);
+        cout << "The FamilyMart has earned " << familyMart.getMoney() << endl;
         cin >> input;
         updateDate(date);
         familyMart.reduceLife();
