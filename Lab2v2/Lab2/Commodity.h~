@@ -86,6 +86,6 @@ public:
 class Fruit : public Commodity {
 public:
     // there is something strange about shelfLife, in purchase.txt the shelfLife is not a fixed value;
-    Fruit(string productDate):Commodity("fruit",4.2,productDate,4){}
+    Fruit(string productDate):Commodity("fruit",4.2,productDate,1){}
 };
 #endif //LAB2_COMMODITY_H

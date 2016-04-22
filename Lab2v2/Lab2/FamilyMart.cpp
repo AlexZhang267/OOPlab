@@ -103,7 +103,7 @@ bool FamilyMart::handlePurchase(string commodity, double discount) {
             return false;
         }
     }
-    cout << "Sorry, " << commodity << " has been sold out" << endl;
+    cout << "Sorry, " << commodity << " is not available" << endl;
     return false;
 }
 
