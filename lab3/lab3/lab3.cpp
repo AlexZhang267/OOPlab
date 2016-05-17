@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include "Preprocessor.h"
 
 using namespace std;
 
@@ -10,9 +11,14 @@ void put_processed_code(int number, string code);
 void run_test(int test_case_number);
 
 int main() {
-    for (int test_case_number = 1; test_case_number <= 2; test_case_number++) {
-        run_test(test_case_number);
-    }
+    regex pattern("([A-Z])");
+    string tmp="A";
+    cout <<regex_match(tmp,pattern)<<endl;
+
+
+//    for (int test_case_number = 1; test_case_number <= 2; test_case_number++) {
+//        run_test(test_case_number);
+//    }
     return 0;
 }
 
@@ -23,6 +29,10 @@ void run_test(int test_case_number) {
      * TODO: Take raw_code as your input, and output your processed code.
      * TODO: You'd better create new classes to handle your logic and use here only as an entrance.
      * */
+    Preprocessor preprocessor;
+    preprocessor.preprocess(raw_code);
+
+
     string processed_code = raw_code;
     put_processed_code(test_case_number, processed_code);
 }
